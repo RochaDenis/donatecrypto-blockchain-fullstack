@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 DonateCrypto — Empowering Donations Through Blockchain
 
-## Getting Started
+**DonateCrypto** is a decentralized platform that removes barriers between donors and social-impact campaigns.  
+Built on Polygon, it delivers **transparency**, **security**, and **instant global reach**, allowing anyone to create or support causes in a fully traceable way.
 
-First, run the development server:
+> “Changing the world, one block at a time.”
+
+---
+
+## 🌟 About the Project
+
+- **Direct & Transparent:** Every donation is recorded on-chain.  
+- **Borderless & Fast:** Funds arrive instantly, anywhere in the world.  
+- **Secure & Decentralized:** You remain in control of your wallet (MetaMask or any EVM-compatible provider).
+
+---
+
+## 🛠 Tech Stack
+
+| Layer              | Technology                                                    |
+|--------------------|---------------------------------------------------------------|
+| **Smart Contract** | Solidity (deployed via Remix on Polygon Amoy Testnet)         |
+| **Frontend**       | Next.js (React Framework)                                     |
+| **Styling**        | Styled Components                                             |
+| **Blockchain I/O** | Ethers.js                                                     |
+| **Wallet Connect** | MetaMask                                                     |
+
+---
+
+## ⚙️ Getting Started
 
 ```bash
+# 1 — Clone the repo
+git clone https://github.com/yourusername/donatecrypto.git
+cd donatecrypto
+
+# 2 — Install dependencies
+npm install
+
+# 3 — Run locally
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
