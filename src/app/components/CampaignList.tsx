@@ -2,7 +2,7 @@
 
 import styled from 'styled-components';
 import CampaignCard from './CampaignCard';
-import { Campaign } from '@/app/page';
+import { Campaign } from '@/app/campanhas/page';
 
 interface Props {
   campaigns: Campaign[];

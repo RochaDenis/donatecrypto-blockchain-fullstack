@@ -1,23 +1,25 @@
-import StyledComponentsRegistry from '../lib/registry';
-import Header from './components/Header';
-import { Toaster } from 'react-hot-toast';
-import GlobalStyle from '../styles/globalStyle';
-
+// src/app/layout.tsx
 import type { Metadata } from 'next';
+import StyledComponentsRegistry from './StyledComponentsRegistry';
+import GlobalStyle from '@/styles/globalStyle';      // se usar createGlobalStyle
+import Header from './components/Header';     // cabeçalho único
 
 export const metadata: Metadata = {
   title: 'DonateCrypto',
-  description: 'Ajude campanhas via criptomoedas',
+  description: 'Conectando doações na blockchain',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-BR">
       <body>
         <StyledComponentsRegistry>
           <GlobalStyle />
           <Header />
-          <Toaster position="top-center" />
           {children}
         </StyledComponentsRegistry>
       </body>

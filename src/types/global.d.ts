@@ -1,14 +1,14 @@
 export {};
 
 declare global {
-  interface CustomEthereumProvider {
+  interface EthereumProvider {
     isMetaMask?: boolean;
-    request: (args: { method: string; params?: unknown[] }) => Promise<unknown>;
+    request: (args: { method: string; params?: unknown[] }) => Promise<string[]>;
     on: (eventName: 'accountsChanged', callback: (accounts: string[]) => void) => void;
     removeListener: (eventName: 'accountsChanged', callback: (accounts: string[]) => void) => void;
   }
 
   interface Window {
-    ethereum?: CustomEthereumProvider;
+    ethereum?: EthereumProvider;
   }
 }

@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { getContract } from '@/lib/contract';
-import Header from './components/Header';
-import CreateCampaign from './components/CreateCampaign';
-import CampaignList from './components/CampaignList';
+
+import CreateCampaign from '../components/CreateCampaign';
+import CampaignList from '../components/CampaignList';
 import styled from 'styled-components';
 
 export type Campaign = {
@@ -37,7 +37,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Header />
+   
       <MainContainer>
         <CreateCampaign />
         <NeonLine />

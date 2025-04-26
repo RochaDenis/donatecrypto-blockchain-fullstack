@@ -1,14 +1,14 @@
 'use client';
 
 import styled from 'styled-components';
-import Header from '../components/Header';
+
 import HomeSection from '../components/HomeSection';
 import Footer from '../components/Footer';
 
 export default function LandingPage() {
   return (
     <>
-      <Header />
+    
       <LandingWrapper>
         <HomeSection />
 

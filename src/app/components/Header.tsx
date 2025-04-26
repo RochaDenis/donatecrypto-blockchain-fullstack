@@ -2,79 +2,107 @@
 
 import Link from 'next/link';
 import styled from 'styled-components';
+import { usePathname } from 'next/navigation';
 import WalletConnect from './WalletConnect';
 
 export default function Header() {
+  const pathname = usePathname();
+  const sobreHref = pathname.startsWith('/home') ? '#sobre' : '/home#sobre';
+
   return (
-    <HeaderContainer>
-      <Brand>
-        <Link href="/home" passHref>
-          <LogoLink>
-            <Logo>DonateCrypto</Logo>
-          </LogoLink>
-        </Link>
-        <Subtitle>Conectando doações, transformando vidas</Subtitle>
+    <Bar>
+      <Brand href="/home">
+        <strong>Donate</strong>Crypto
       </Brand>
 
       <Nav>
-        <StyledLink href="/home">Home</StyledLink>
-        <StyledLink href="/campanhas">Campanhas</StyledLink>
-        <StyledLink href="/home#sobre">Sobre</StyledLink>
-      </Nav>
+        <MenuLink href="/home">Home</MenuLink>
+        <MenuLink href="/campanhas">Campanhas</MenuLink>
+        <MenuLink href={sobreHref}>Sobre</MenuLink>
 
-      <WalletConnect />
-    </HeaderContainer>
+        {/* Botão de conectar carteira alinhado com os links */}
+        <WalletWrapper>
+          <WalletConnect />
+        </WalletWrapper>
+      </Nav>
+    </Bar>
   );
 }
 
-const HeaderContainer = styled.header`
-  position: fixed;
-  top: 0;
+/* ---------------- styled-components ---------------- */
+
+const Bar = styled.header`
   width: 100%;
   background: #000;
-  padding: 1.2rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 1rem 2rem;
   border-bottom: 2px solid var(--neon);
-  z-index: 1000;
-`;
-
-const Brand = styled.div`
   display: flex;
-  flex-direction: column;
-  line-height: 1;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 `;
 
-const LogoLink = styled.a`
-  text-decoration: none;
-`;
-
-const Logo = styled.h1`
-  font-size: 1.8rem;
+const Brand = styled(Link)`
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
   color: var(--neon);
-  font-weight: bold;
-  text-shadow: var(--glow);
-`;
+  text-shadow: 0 0 8px var(--neon);
+  text-decoration: none;
 
-const Subtitle = styled.span`
-  color: var(--foreground);
-  font-size: 0.9rem;
-  margin-top: 0.25rem;
+  strong {
+    font-weight: 900;
+  }
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: var(--neon);
+    text-decoration: none;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 2rem;
 `;
 
-const StyledLink = styled(Link)`
+const MenuLink = styled(Link)`
   color: var(--foreground);
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: color 0.3s ease;
 
   &:hover {
     color: var(--neon);
   }
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: var(--neon);
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+`;
+
+const WalletWrapper = styled.div`
+  margin-left: 1rem;
 `;
